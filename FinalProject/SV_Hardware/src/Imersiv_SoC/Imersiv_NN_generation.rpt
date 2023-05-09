@@ -1,0 +1,240 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate "C:\Users\unbre\Documents\UIUC 2021-2025 Course Info\2022-2023 Spring Semester\ECE-385\FinalProject\SV_Hardware\src\Imersiv_NN.qsys" --block-symbol-file --output-directory="C:\Users\unbre\Documents\UIUC 2021-2025 Course Info\2022-2023 Spring Semester\ECE-385\FinalProject\SV_Hardware\src\Imersiv_SoC" --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading src/Imersiv_NN.qsys
+Progress: Reading input file
+Progress: Adding chararcter_irq [altera_avalon_pio 18.1]
+Progress: Parameterizing module chararcter_irq
+Progress: Adding clk_0 [clock_source 18.1]
+Progress: Parameterizing module clk_0
+Progress: Adding hex_digits [altera_avalon_pio 18.1]
+Progress: Parameterizing module hex_digits
+Progress: Adding imersiv_net_avl_interface_0 [imersiv_net_avl_interface 1.0]
+Progress: Parameterizing module imersiv_net_avl_interface_0
+Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 18.1]
+Progress: Parameterizing module jtag_uart_0
+Progress: Adding key [altera_avalon_pio 18.1]
+Progress: Parameterizing module key
+Progress: Adding leds [altera_avalon_pio 18.1]
+Progress: Parameterizing module leds
+Progress: Adding mouseX [altera_avalon_pio 18.1]
+Progress: Parameterizing module mouseX
+Progress: Adding mouseY [altera_avalon_pio 18.1]
+Progress: Parameterizing module mouseY
+Progress: Adding nios2_gen2_0 [altera_nios2_gen2 18.1]
+Progress: Parameterizing module nios2_gen2_0
+Progress: Adding sdram [altera_avalon_new_sdram_controller 18.1]
+Progress: Parameterizing module sdram
+Progress: Adding sdram_ppl [altpll 18.1]
+Progress: Parameterizing module sdram_ppl
+Progress: Adding spi_0 [altera_avalon_spi 18.1]
+Progress: Parameterizing module spi_0
+Progress: Adding switches [altera_avalon_pio 18.1]
+Progress: Parameterizing module switches
+Progress: Adding sysid_qsys_0 [altera_avalon_sysid_qsys 18.1]
+Progress: Parameterizing module sysid_qsys_0
+Progress: Adding timer_0 [altera_avalon_timer 18.1]
+Progress: Parameterizing module timer_0
+Progress: Adding usb_gpx [altera_avalon_pio 18.1]
+Progress: Parameterizing module usb_gpx
+Progress: Adding usb_irq [altera_avalon_pio 18.1]
+Progress: Parameterizing module usb_irq
+Progress: Adding usb_rst [altera_avalon_pio 18.1]
+Progress: Parameterizing module usb_rst
+Progress: Adding vga_avl_interface_0 [vga_avl_interface 1.0]
+Progress: Parameterizing module vga_avl_interface_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: Imersiv_NN.chararcter_irq: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: Imersiv_NN.jtag_uart_0: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: Imersiv_NN.key: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: Imersiv_NN.sdram: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: Imersiv_NN.switches: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: Imersiv_NN.sysid_qsys_0: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: Imersiv_NN.sysid_qsys_0: Time stamp will be automatically updated when this component is generated.
+Info: Imersiv_NN.usb_gpx: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: Imersiv_NN.usb_irq: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate "C:\Users\unbre\Documents\UIUC 2021-2025 Course Info\2022-2023 Spring Semester\ECE-385\FinalProject\SV_Hardware\src\Imersiv_NN.qsys" --synthesis=VERILOG --output-directory="C:\Users\unbre\Documents\UIUC 2021-2025 Course Info\2022-2023 Spring Semester\ECE-385\FinalProject\SV_Hardware\src\Imersiv_SoC\synthesis" --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading src/Imersiv_NN.qsys
+Progress: Reading input file
+Progress: Adding chararcter_irq [altera_avalon_pio 18.1]
+Progress: Parameterizing module chararcter_irq
+Progress: Adding clk_0 [clock_source 18.1]
+Progress: Parameterizing module clk_0
+Progress: Adding hex_digits [altera_avalon_pio 18.1]
+Progress: Parameterizing module hex_digits
+Progress: Adding imersiv_net_avl_interface_0 [imersiv_net_avl_interface 1.0]
+Progress: Parameterizing module imersiv_net_avl_interface_0
+Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 18.1]
+Progress: Parameterizing module jtag_uart_0
+Progress: Adding key [altera_avalon_pio 18.1]
+Progress: Parameterizing module key
+Progress: Adding leds [altera_avalon_pio 18.1]
+Progress: Parameterizing module leds
+Progress: Adding mouseX [altera_avalon_pio 18.1]
+Progress: Parameterizing module mouseX
+Progress: Adding mouseY [altera_avalon_pio 18.1]
+Progress: Parameterizing module mouseY
+Progress: Adding nios2_gen2_0 [altera_nios2_gen2 18.1]
+Progress: Parameterizing module nios2_gen2_0
+Progress: Adding sdram [altera_avalon_new_sdram_controller 18.1]
+Progress: Parameterizing module sdram
+Progress: Adding sdram_ppl [altpll 18.1]
+Progress: Parameterizing module sdram_ppl
+Progress: Adding spi_0 [altera_avalon_spi 18.1]
+Progress: Parameterizing module spi_0
+Progress: Adding switches [altera_avalon_pio 18.1]
+Progress: Parameterizing module switches
+Progress: Adding sysid_qsys_0 [altera_avalon_sysid_qsys 18.1]
+Progress: Parameterizing module sysid_qsys_0
+Progress: Adding timer_0 [altera_avalon_timer 18.1]
+Progress: Parameterizing module timer_0
+Progress: Adding usb_gpx [altera_avalon_pio 18.1]
+Progress: Parameterizing module usb_gpx
+Progress: Adding usb_irq [altera_avalon_pio 18.1]
+Progress: Parameterizing module usb_irq
+Progress: Adding usb_rst [altera_avalon_pio 18.1]
+Progress: Parameterizing module usb_rst
+Progress: Adding vga_avl_interface_0 [vga_avl_interface 1.0]
+Progress: Parameterizing module vga_avl_interface_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: Imersiv_NN.chararcter_irq: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: Imersiv_NN.jtag_uart_0: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: Imersiv_NN.key: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: Imersiv_NN.sdram: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: Imersiv_NN.switches: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: Imersiv_NN.sysid_qsys_0: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: Imersiv_NN.sysid_qsys_0: Time stamp will be automatically updated when this component is generated.
+Info: Imersiv_NN.usb_gpx: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: Imersiv_NN.usb_irq: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: Imersiv_NN: Generating Imersiv_NN "Imersiv_NN" for QUARTUS_SYNTH
+Info: Inserting clock-crossing logic between cmd_demux.src6 and cmd_mux_006.sink0
+Info: Inserting clock-crossing logic between cmd_demux_001.src6 and cmd_mux_006.sink1
+Info: Inserting clock-crossing logic between rsp_demux_006.src0 and rsp_mux.sink6
+Info: Inserting clock-crossing logic between rsp_demux_006.src1 and rsp_mux_001.sink6
+Info: chararcter_irq: Starting RTL generation for module 'Imersiv_NN_chararcter_irq'
+Info: chararcter_irq:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=Imersiv_NN_chararcter_irq --dir=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0002_chararcter_irq_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0002_chararcter_irq_gen//Imersiv_NN_chararcter_irq_component_configuration.pl  --do_build_sim=0  ]
+Info: chararcter_irq: Done RTL generation for module 'Imersiv_NN_chararcter_irq'
+Info: chararcter_irq: "Imersiv_NN" instantiated altera_avalon_pio "chararcter_irq"
+Info: hex_digits: Starting RTL generation for module 'Imersiv_NN_hex_digits'
+Info: hex_digits:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=Imersiv_NN_hex_digits --dir=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0003_hex_digits_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0003_hex_digits_gen//Imersiv_NN_hex_digits_component_configuration.pl  --do_build_sim=0  ]
+Info: hex_digits: Done RTL generation for module 'Imersiv_NN_hex_digits'
+Info: hex_digits: "Imersiv_NN" instantiated altera_avalon_pio "hex_digits"
+Info: imersiv_net_avl_interface_0: "Imersiv_NN" instantiated imersiv_net_avl_interface "imersiv_net_avl_interface_0"
+Info: jtag_uart_0: Starting RTL generation for module 'Imersiv_NN_jtag_uart_0'
+Info: jtag_uart_0:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=Imersiv_NN_jtag_uart_0 --dir=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0005_jtag_uart_0_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0005_jtag_uart_0_gen//Imersiv_NN_jtag_uart_0_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart_0: Done RTL generation for module 'Imersiv_NN_jtag_uart_0'
+Info: jtag_uart_0: "Imersiv_NN" instantiated altera_avalon_jtag_uart "jtag_uart_0"
+Info: key: Starting RTL generation for module 'Imersiv_NN_key'
+Info: key:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=Imersiv_NN_key --dir=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0006_key_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0006_key_gen//Imersiv_NN_key_component_configuration.pl  --do_build_sim=0  ]
+Info: key: Done RTL generation for module 'Imersiv_NN_key'
+Info: key: "Imersiv_NN" instantiated altera_avalon_pio "key"
+Info: leds: Starting RTL generation for module 'Imersiv_NN_leds'
+Info: leds:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=Imersiv_NN_leds --dir=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0007_leds_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0007_leds_gen//Imersiv_NN_leds_component_configuration.pl  --do_build_sim=0  ]
+Info: leds: Done RTL generation for module 'Imersiv_NN_leds'
+Info: leds: "Imersiv_NN" instantiated altera_avalon_pio "leds"
+Info: mouseX: Starting RTL generation for module 'Imersiv_NN_mouseX'
+Info: mouseX:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=Imersiv_NN_mouseX --dir=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0008_mouseX_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0008_mouseX_gen//Imersiv_NN_mouseX_component_configuration.pl  --do_build_sim=0  ]
+Info: mouseX: Done RTL generation for module 'Imersiv_NN_mouseX'
+Info: mouseX: "Imersiv_NN" instantiated altera_avalon_pio "mouseX"
+Info: nios2_gen2_0: "Imersiv_NN" instantiated altera_nios2_gen2 "nios2_gen2_0"
+Info: sdram: Starting RTL generation for module 'Imersiv_NN_sdram'
+Info: sdram:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=Imersiv_NN_sdram --dir=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0009_sdram_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0009_sdram_gen//Imersiv_NN_sdram_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram: Done RTL generation for module 'Imersiv_NN_sdram'
+Info: sdram: "Imersiv_NN" instantiated altera_avalon_new_sdram_controller "sdram"
+Info: sdram_ppl: "Imersiv_NN" instantiated altpll "sdram_ppl"
+Info: spi_0: Starting RTL generation for module 'Imersiv_NN_spi_0'
+Info: spi_0:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_spi -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_spi/generate_rtl.pl --name=Imersiv_NN_spi_0 --dir=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0012_spi_0_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0012_spi_0_gen//Imersiv_NN_spi_0_component_configuration.pl  --do_build_sim=0  ]
+Info: spi_0: Done RTL generation for module 'Imersiv_NN_spi_0'
+Info: spi_0: "Imersiv_NN" instantiated altera_avalon_spi "spi_0"
+Info: switches: Starting RTL generation for module 'Imersiv_NN_switches'
+Info: switches:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=Imersiv_NN_switches --dir=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0013_switches_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0013_switches_gen//Imersiv_NN_switches_component_configuration.pl  --do_build_sim=0  ]
+Info: switches: Done RTL generation for module 'Imersiv_NN_switches'
+Info: switches: "Imersiv_NN" instantiated altera_avalon_pio "switches"
+Info: sysid_qsys_0: "Imersiv_NN" instantiated altera_avalon_sysid_qsys "sysid_qsys_0"
+Info: timer_0: Starting RTL generation for module 'Imersiv_NN_timer_0'
+Info: timer_0:   Generation command is [exec C:/intelFPGA_lite/18.1/quartus/bin64//perl/bin/perl.exe -I C:/intelFPGA_lite/18.1/quartus/bin64//perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=Imersiv_NN_timer_0 --dir=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0015_timer_0_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0015_timer_0_gen//Imersiv_NN_timer_0_component_configuration.pl  --do_build_sim=0  ]
+Info: timer_0: Done RTL generation for module 'Imersiv_NN_timer_0'
+Info: timer_0: "Imersiv_NN" instantiated altera_avalon_timer "timer_0"
+Info: usb_gpx: Starting RTL generation for module 'Imersiv_NN_usb_gpx'
+Info: usb_gpx:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=Imersiv_NN_usb_gpx --dir=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0016_usb_gpx_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0016_usb_gpx_gen//Imersiv_NN_usb_gpx_component_configuration.pl  --do_build_sim=0  ]
+Info: usb_gpx: Done RTL generation for module 'Imersiv_NN_usb_gpx'
+Info: usb_gpx: "Imersiv_NN" instantiated altera_avalon_pio "usb_gpx"
+Info: usb_rst: Starting RTL generation for module 'Imersiv_NN_usb_rst'
+Info: usb_rst:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=Imersiv_NN_usb_rst --dir=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0017_usb_rst_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0017_usb_rst_gen//Imersiv_NN_usb_rst_component_configuration.pl  --do_build_sim=0  ]
+Info: usb_rst: Done RTL generation for module 'Imersiv_NN_usb_rst'
+Info: usb_rst: "Imersiv_NN" instantiated altera_avalon_pio "usb_rst"
+Info: vga_avl_interface_0: "Imersiv_NN" instantiated vga_avl_interface "vga_avl_interface_0"
+Info: Reusing file C:/Users/unbre/Documents/UIUC 2021-2025 Course Info/2022-2023 Spring Semester/ECE-385/FinalProject/SV_Hardware/src/Imersiv_SoC/synthesis/submodules/vga_controller.sv
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_006: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_007: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_008: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_009: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_010: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_011: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_012: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_013: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_014: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_015: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_016: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_017: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_018: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "Imersiv_NN" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: irq_mapper: "Imersiv_NN" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "Imersiv_NN" instantiated altera_reset_controller "rst_controller"
+Info: cpu: Starting RTL generation for module 'Imersiv_NN_nios2_gen2_0_cpu'
+Info: cpu:   Generation command is [exec C:/intelFPGA_lite/18.1/quartus/bin64//eperlcmd.exe -I C:/intelFPGA_lite/18.1/quartus/bin64//perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=Imersiv_NN_nios2_gen2_0_cpu --dir=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0021_cpu_gen/ --quartus_bindir=C:/intelFPGA_lite/18.1/quartus/bin64/ --verilog --config=C:/Users/unbre/AppData/Local/Temp/alt9480_1235229347098431118.dir/0021_cpu_gen//Imersiv_NN_nios2_gen2_0_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2023.05.03 01:30:19 (*) Starting Nios II generation
+Info: cpu: # 2023.05.03 01:30:19 (*)   Checking for plaintext license.
+Info: cpu: # 2023.05.03 01:30:20 (*)   Couldn't query license setup in Quartus directory C:/intelFPGA_lite/18.1/quartus/bin64/
+Info: cpu: # 2023.05.03 01:30:20 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: cpu: # 2023.05.03 01:30:20 (*)   LM_LICENSE_FILE environment variable is empty
+Info: cpu: # 2023.05.03 01:30:20 (*)   Plaintext license not found.
+Info: cpu: # 2023.05.03 01:30:20 (*)   No license required to generate encrypted Nios II/e.
+Info: cpu: # 2023.05.03 01:30:20 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2023.05.03 01:30:20 (*)   Creating all objects for CPU
+Info: cpu: # 2023.05.03 01:30:20 (*)   Generating RTL from CPU objects
+Info: cpu: # 2023.05.03 01:30:20 (*)   Creating plain-text RTL
+Info: cpu: # 2023.05.03 01:30:21 (*) Done Nios II generation
+Info: cpu: Done RTL generation for module 'Imersiv_NN_nios2_gen2_0_cpu'
+Info: cpu: "nios2_gen2_0" instantiated altera_nios2_gen2_unit "cpu"
+Info: nios2_gen2_0_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "nios2_gen2_0_data_master_translator"
+Info: vga_avl_interface_0_AVALON_SLAVE_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "vga_avl_interface_0_AVALON_SLAVE_translator"
+Info: nios2_gen2_0_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "nios2_gen2_0_data_master_agent"
+Info: vga_avl_interface_0_AVALON_SLAVE_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "vga_avl_interface_0_AVALON_SLAVE_agent"
+Info: vga_avl_interface_0_AVALON_SLAVE_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "vga_avl_interface_0_AVALON_SLAVE_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: router_008: "mm_interconnect_0" instantiated altera_merlin_router "router_008"
+Info: sdram_s1_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "sdram_s1_burst_adapter"
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file C:/Users/unbre/Documents/UIUC 2021-2025 Course Info/2022-2023 Spring Semester/ECE-385/FinalProject/SV_Hardware/src/Imersiv_SoC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: sdram_s1_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "sdram_s1_rsp_width_adapter"
+Info: Reusing file C:/Users/unbre/Documents/UIUC 2021-2025 Course Info/2022-2023 Spring Semester/ECE-385/FinalProject/SV_Hardware/src/Imersiv_SoC/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file C:/Users/unbre/Documents/UIUC 2021-2025 Course Info/2022-2023 Spring Semester/ECE-385/FinalProject/SV_Hardware/src/Imersiv_SoC/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: crosser: "mm_interconnect_0" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
+Info: Reusing file C:/Users/unbre/Documents/UIUC 2021-2025 Course Info/2022-2023 Spring Semester/ECE-385/FinalProject/SV_Hardware/src/Imersiv_SoC/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: avalon_st_adapter_006: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_006"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter_006" instantiated error_adapter "error_adapter_0"
+Info: Imersiv_NN: Done "Imersiv_NN" with 41 modules, 66 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

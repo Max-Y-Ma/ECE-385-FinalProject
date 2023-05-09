@@ -1,0 +1,124 @@
+`timescale 1ns / 1ps
+`include "include.v"
+`define MaxTestSamples 2
+`define NUM_IMAGE_REGS 28
+`define IMAGE_SIZE 784
+
+module imersiv_net_testbench();
+	// Logic Variables
+	logic RESET;
+	logic CLK;
+	logic CHARACTER_IRQ;
+	 
+	// Avalon Address Variables
+	input  logic AVL_READ;						// Avalon-MM Read
+	input  logic AVL_WRITE;						// Avalon-MM Write
+	input  logic AVL_CS;							// Avalon-MM Chip Select
+	input  logic [4:0] AVL_ADDR;				// Avalon-MM Address
+	input  logic [31:0] AVL_WRITEDATA;		// Avalon-MM Write Data
+	output logic [31:0] AVL_READDATA;	   // Avalon-MM Read Data
+	 
+	logic [7:0] fileName [3:0];
+   logic [31:0] expected;
+	logic [31:0] result;
+
+   integer match;
+   integer error;
+    
+	// DUT
+   imersiv_net_avl_interface DUT(.*);
+
+	// Initialization 
+	initial begin
+		CLK = 1'b1;
+		match = 0;
+		error = 0;
+		RESET = 0;
+	end
+	
+	// Clock
+	always
+		#20 CLK = ~CLK;
+	
+   function [7:0] to_ascii (input integer a);
+       begin
+           to_ascii = a + 48;
+       end
+   endfunction
+	 
+	// Load Image 
+	logic [3:0] mem [`IMAGE_SIZE:0];
+	integer i, j;
+	task loadImage();
+		begin
+			$readmemb({"testData/test_data_", fileName[3], fileName[2], fileName[1], fileName[0],".txt"}, mem);
+			for (i=0; i < `NUM_IMAGE_REGS; i++) begin
+				for (j=0; j < `NUM_IMAGE_REGS; j++) begin
+					AVL_WRITEDATA[27 - j % 28] <= mem[28 * i + j];
+				end
+				AVL_CS = 1'b1;
+				AVL_WRITE = 1'b1;
+				AVL_ADDR = i;
+				#40; // One Clock Cycle
+			end
+			expected <= mem[785];
+		end
+	endtask
+	
+	task readCharacter();
+		begin
+			AVL_CS = 1'b1;
+			AVL_READ = 1'b1;
+			AVL_ADDR = 5'h1C;
+			#40;
+			result = AVL_READDATA;
+		end
+	endtask
+  
+   // Run Test
+   integer start;
+   integer testCount;
+   integer currentTest;
+   initial begin
+		#20;
+      RESET = 1;
+		#20;
+      RESET = 0;
+		for(testCount = 0; testCount < `MaxTestSamples; testCount++) begin
+			// Prepare Data
+			currentTest = testCount;
+			fileName[0] = "0";
+			fileName[1] = "0";
+			fileName[2] = "0";
+			fileName[3] = "0";
+			i=0;
+			while(currentTest != 0) begin
+				fileName[i] = to_ascii(currentTest % 10);
+				currentTest = currentTest / 10;
+				i++;
+			end
+			loadImage();
+			start = $time;
+				
+			#40000
+			
+			readCharacter();
+
+			// Process Results
+			if(result == expected) begin
+				$display("Match");
+				match++;
+			end else begin
+				$display("Error");
+				error++;
+			end
+            
+			$display("%0d. Accuracy: %f, Detected number: %0x, Expected: %x", testCount+1, match*100.0 / (testCount+1), CHARACTER_REG, expected);
+			$display("Total execution time",,,,$time-start,,"ns");
+		end
+		$display("Matches: %0d, Error: %0d", match, error);
+		$display("Accuracy: %f", match*100.0 / testCount);        
+		$stop;
+	end
+	
+endmodule

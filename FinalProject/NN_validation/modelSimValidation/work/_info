@@ -1,0 +1,193 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/intelFPGA/18.1
+vimersiv_net
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1682894782
+!i10b 1
+!s100 ERLk0[7gn`oAdcK;Lij<C1
+I0TTc1NHXmaB5>ASC`aTKj2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 imersiv_net_sv_unit
+S1
+R0
+w1682720946
+8C:/intelFPGA/18.1/imersiv_net.sv
+FC:/intelFPGA/18.1/imersiv_net.sv
+L0 16
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1682894782.000000
+!s107 include.v|C:/intelFPGA/18.1/imersiv_net.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/intelFPGA/18.1/imersiv_net.sv|
+!i113 1
+Z6 o-work work -sv
+Z7 tCvgOpt 0
+vimersiv_net_testbench
+R1
+R2
+!i10b 1
+!s100 ioEYKX;fHzjZJgojRI:2@0
+IOl=J>f4_m=fZibHOF8SZk3
+R3
+!s105 imersiv_net_testbench_sv_unit
+S1
+R0
+w1682893982
+8C:/intelFPGA/18.1/imersiv_net_testbench.sv
+FC:/intelFPGA/18.1/imersiv_net_testbench.sv
+L0 7
+R4
+r1
+!s85 0
+31
+R5
+!s107 include.v|C:/intelFPGA/18.1/imersiv_net_testbench.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/intelFPGA/18.1/imersiv_net_testbench.sv|
+!i113 1
+R6
+R7
+vLayer_1
+R2
+!i10b 1
+!s100 A1AK7<d]Q6[`3;e[SL4gd2
+IgAa_JiYFD^fLeC6Z>;[l13
+R3
+R0
+w1682649241
+8C:/intelFPGA/18.1/Layer_1.v
+FC:/intelFPGA/18.1/Layer_1.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/intelFPGA/18.1/Layer_1.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA/18.1/Layer_1.v|
+!i113 1
+Z8 o-work work
+R7
+n@layer_1
+vLayer_2
+R2
+!i10b 1
+!s100 VAjij`6V=2d0:SBFm0^TQ3
+IPo0[B<:fdo0>NW3DzcIO`3
+R3
+R0
+w1682649712
+8C:/intelFPGA/18.1/Layer_2.v
+FC:/intelFPGA/18.1/Layer_2.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/intelFPGA/18.1/Layer_2.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA/18.1/Layer_2.v|
+!i113 1
+R8
+R7
+n@layer_2
+vmaxFinder
+R2
+!i10b 1
+!s100 ND`FQQk5<7XLF3ozLG06A3
+I]h_m^AcW?jz0TzijDE_[M2
+R3
+R0
+w1682623087
+8C:/intelFPGA/18.1/maxFinder.v
+FC:/intelFPGA/18.1/maxFinder.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/intelFPGA/18.1/maxFinder.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA/18.1/maxFinder.v|
+!i113 1
+R8
+R7
+nmax@finder
+vneuron
+R2
+!i10b 1
+!s100 =EOKRJLj=nP8;X8ci;I6d3
+IL1g2MiZJ336D:iC;]3@fa0
+R3
+R0
+w1682894753
+8C:/intelFPGA/18.1/neuron.v
+FC:/intelFPGA/18.1/neuron.v
+L0 9
+R4
+r1
+!s85 0
+31
+R5
+!s107 include.v|C:/intelFPGA/18.1/neuron.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA/18.1/neuron.v|
+!i113 1
+R8
+R7
+vsigmoid_rom
+R1
+R2
+!i10b 1
+!s100 SlQ?Y6li]@6_P[jznFj8G3
+IP_]VC<aGN>E2UP2Y5mafS2
+R3
+!s105 sigmoid_rom_sv_unit
+S1
+R0
+w1682621291
+8C:/intelFPGA/18.1/sigmoid_rom.sv
+FC:/intelFPGA/18.1/sigmoid_rom.sv
+L0 6
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/intelFPGA/18.1/sigmoid_rom.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/intelFPGA/18.1/sigmoid_rom.sv|
+!i113 1
+R6
+R7
+vweight_memory
+R1
+R2
+!i10b 1
+!s100 NKgEo7i[M>Q]ZXbULj<QD2
+IeXigjm`4J[V:2OoRRKI6C0
+R3
+!s105 weight_memory_sv_unit
+S1
+R0
+w1682647158
+8C:/intelFPGA/18.1/weight_memory.sv
+FC:/intelFPGA/18.1/weight_memory.sv
+L0 3
+R4
+r1
+!s85 0
+31
+R5
+!s107 include.v|C:/intelFPGA/18.1/weight_memory.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/intelFPGA/18.1/weight_memory.sv|
+!i113 1
+R6
+R7

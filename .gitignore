@@ -1,0 +1,9 @@
+**/db
+**/incremental_db
+**/simulation
+**/output_files
+*.qws
+*.qsf
+*.metadata
+*.npy
+**/testData

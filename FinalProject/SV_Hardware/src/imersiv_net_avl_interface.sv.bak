@@ -1,0 +1,40 @@
+//
+//		Custom Neural Network IP for Imersiv Net
+//
+//		Description: Mathematical numerical character and operator recognition neural network.
+//                 Trained on a binary 28x28 pixel image dataset containing the following characters:
+//                 0123456789[]+-*/
+//						 
+//		Date: 4/17/2023
+//		Revision: v1.0
+//		Authors: Max Ma & Dhruv Kulgod
+//		
+
+module imersiv_net_avl_interface (
+	// Avalon Clock Input
+	input logic CLK,
+	
+	// Avalon Reset Input
+	input logic RESET,
+	
+	// Avalon-MM Slave Signals
+	input  logic AVL_READ,						// Avalon-MM Read
+	input  logic AVL_WRITE,						// Avalon-MM Write
+	input  logic AVL_CS,							// Avalon-MM Chip Select
+	input  logic [3:0] AVL_BYTE_EN,			// Avalon-MM Byte Enable
+	input  logic [5:0] AVL_ADDR,				// Avalon-MM Address
+	input  logic [31:0] AVL_WRITEDATA,		// Avalon-MM Write Data
+	output logic [31:0] AVL_READDATA,		// Avalon-MM Read Data
+);
+
+	// Register File (x28 * 32-bit width)
+	// Address Needs to be 5 bits
+	
+	// How Memory Works:
+	// Each register contains pixel in corresponding row with the following mapping
+	// [32:28] : Blank (Wasted space but makes code simple)
+	// [27:0] : Left -> Right Pixel data of Row
+	
+	// Output Register (16-bit width: contains keycode)
+
+endmodule

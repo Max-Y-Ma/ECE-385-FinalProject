@@ -1,0 +1,227 @@
+/***********************************************************************
+////////////////////////////////////////////////////////////////////////
+//////////////////////////// Lab 7.2 Week 1 ////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+Authors: Max Ma, Dhruv Kulgod
+Date: 4/3/2023
+
+***********************************************************************/
+`define NUM_REGS 1200 // Change to Reflect Design
+`define NUM_PALETTE_REGS 8
+	
+module ram_600x32 (
+	output logic [31:0] DATA_OUT,
+	input logic [31:0] DATA_IN,
+	input logic [3:0] AVL_BYTE_EN,
+	input logic [11:0] WRITE_ADDRESS, READ_ADDRESS,
+	input logic WE, CLK
+);
+	// Infer Dual-Port RAM
+	logic [3:0][7:0] VRAM [`NUM_REGS];
+	
+	always_ff @ (posedge CLK) begin
+		if (WE) begin
+			// Inferring Byte Enable
+			if (AVL_BYTE_EN[0])
+				VRAM[WRITE_ADDRESS][0] <= DATA_IN[7:0];
+			if (AVL_BYTE_EN[1])
+				VRAM[WRITE_ADDRESS][1] <= DATA_IN[15:8];
+			if (AVL_BYTE_EN[2])
+				VRAM[WRITE_ADDRESS][2] <= DATA_IN[23:16];
+			if (AVL_BYTE_EN[3])
+				VRAM[WRITE_ADDRESS][3] <= DATA_IN[31:24];
+		end
+		DATA_OUT <= VRAM[READ_ADDRESS];
+	end
+	
+endmodule
+
+module vga_avl_interface (
+	// Avalon Clock Input
+	input logic CLK,
+	
+	// Avalon Reset Input
+	input logic RESET,
+	
+	// Avalon-MM Slave Signals
+	input  logic AVL_READ,						// Avalon-MM Read
+	input  logic AVL_WRITE,						// Avalon-MM Write
+	input  logic AVL_CS,							// Avalon-MM Chip Select
+	input  logic [3:0] AVL_BYTE_EN,			// Avalon-MM Byte Enable
+	input  logic [11:0] AVL_ADDR,				// Avalon-MM Address
+	input  logic [31:0] AVL_WRITEDATA,		// Avalon-MM Write Data
+	output logic [31:0] AVL_READDATA,		// Avalon-MM Read Data
+	
+	// Exported Conduit
+	output logic [3:0]  red, green, blue,	// VGA Color Channels
+	output logic hs, vs,							// VGA HS / VS
+	
+	// Exported Conduit
+	output logic BLANK
+);
+
+///////////////////////
+///// VRAM MODULE /////
+///////////////////////
+logic WE;
+logic [11:0] WRITE_ADDRESS, READ_ADDRESS;
+logic [31:0] DATA_IN, DATA_OUT, CONTROL_REG;
+ram_600x32 VRAM_(.*);
+
+///////////////////////////
+///// Font ROM MODULE /////
+///////////////////////////
+logic [10:0] ROM_addr;
+logic [7:0] ROM_data;
+font_rom ROM_(.addr(ROM_addr), .data(ROM_data));
+
+/////////////////////////////////
+///// PALETTE REGISTER FILE /////
+/////////////////////////////////
+logic [31:0] PALETTE_COLOR;
+logic [2:0] PALETTE_ADDRESS;
+logic [3:0][7:0] PALETTE_ [`NUM_PALETTE_REGS];
+
+/////////////////////////////////
+///// VGA Controller MODULE /////
+/////////////////////////////////
+logic pixel_clk, blank, sync;
+logic [9:0] DrawX, DrawY;
+vga_controller VGA_(.Clk(CLK), .Reset(RESET), .*);
+
+// Read and Write Sequential Logic
+logic OE, PR_OE;
+always_ff @(posedge CLK) begin
+	// Default OE = 0, PR_OE = 0
+	OE <= 1'b0;
+	PR_OE <= 1'b0;
+	WE <= 1'b0;
+	
+	// When CS is HIGH (Active High): I/O with AVALON BUS
+ 	if(AVL_CS) begin
+		// Read Operation
+		if(AVL_READ) begin
+			unique case(READ_ADDRESS[11])
+				1'b0 : OE <= 1'b1;		// Output VRAM
+				1'b1 : PR_OE <= 1'b1;	// Output PALLETE Register 
+			endcase
+		end 
+		
+		// Write Operation
+		else if(AVL_WRITE) begin
+			// PALLETE Register Write
+			if(WRITE_ADDRESS[11]) begin
+				// PALLETE Register Byte Enable
+				if (AVL_BYTE_EN[0])
+					PALETTE_[WRITE_ADDRESS[2:0]][0] <= DATA_IN[7:0];
+				if (AVL_BYTE_EN[1])
+					PALETTE_[WRITE_ADDRESS[2:0]][1] <= DATA_IN[15:8];
+				if (AVL_BYTE_EN[2])
+					PALETTE_[WRITE_ADDRESS[2:0]][2] <= DATA_IN[23:16];
+				if (AVL_BYTE_EN[3])
+					PALETTE_[WRITE_ADDRESS[2:0]][3] <= DATA_IN[31:24];
+			end else begin
+				// ASSIGN WE
+				WE <= 1'b1;
+			end
+		end
+	end
+end
+
+// Read and Write Combinational Logic 
+always_comb begin
+	// ASSIGN READ_ADDRESS
+ 	if(AVL_CS) begin
+		READ_ADDRESS = AVL_ADDR;
+	end else begin
+		READ_ADDRESS = (DrawX >> 4) + 40 * (DrawY >> 4);
+	end
+	
+	// ASSIGN WRITE_ADDRESS
+	WRITE_ADDRESS = AVL_ADDR;
+	
+	// ASSIGN DATA_IN
+	DATA_IN = AVL_WRITEDATA;
+end
+
+// 2 Cycle Latency: Read Operation from AVALON BUS  
+always_ff @(posedge CLK) begin
+	if (PR_OE) begin
+		AVL_READDATA <= PALETTE_[READ_ADDRESS[2:0]];
+	end 
+	else if(OE) begin
+		AVL_READDATA <= DATA_OUT;
+	end
+end
+
+////////////////////
+///// KEYCODES /////
+////////////////////
+logic [3:0] FGD_IDX, BKG_IDX;
+logic [6:0] CODE;
+logic IV_B;
+always_comb begin
+	unique case(DrawX[3])
+		1'b0 : begin
+			IV_B = DATA_OUT[15];
+			CODE = DATA_OUT[14:8];
+			FGD_IDX = DATA_OUT[7:4];
+			BKG_IDX = DATA_OUT[3:0];
+		end
+		1'b1 : begin
+			IV_B = DATA_OUT[31];
+			CODE = DATA_OUT[30:24];
+			FGD_IDX = DATA_OUT[23:20];
+			BKG_IDX = DATA_OUT[19:16];
+		end
+	endcase
+end
+
+///////////////////
+///// DISPLAY /////
+///////////////////
+logic [3:0] RED, GREEN, BLUE;
+always_ff @ (posedge pixel_clk) begin
+	red <= RED;
+	green <= GREEN;
+	blue <= BLUE;
+end
+
+// Determine Palette Address and Color
+logic UPPER_WORD;
+assign PALETTE_COLOR = PALETTE_[PALETTE_ADDRESS];
+always_comb begin
+	if ((IV_B ^ ROM_data[~(DrawX[2:0])]) == 1) begin
+		PALETTE_ADDRESS = FGD_IDX[3:1];
+		UPPER_WORD = FGD_IDX[0];
+	end else begin
+		PALETTE_ADDRESS = BKG_IDX[3:1];
+		UPPER_WORD = BKG_IDX[0];
+	end
+end
+
+assign ROM_addr = (CODE << 4) + DrawY[3:0];
+always_comb begin
+	// If blank == 0, Output R = 4'h0, G = 4'h0, B = 4'h0
+	if (blank == 0) begin
+		RED = 4'h0;
+		GREEN = 4'h0;
+		BLUE = 4'h0;
+	end
+	
+	// Otherwise, Output Foreground(1) or Background(0) Colors
+	// Font Bit = Three Lowest Bits of DrawX Inverted
+	// Output Foreground
+	else if (UPPER_WORD == 1) begin
+		RED = PALETTE_COLOR[27:24];
+		GREEN = PALETTE_COLOR[23:20];
+		BLUE = PALETTE_COLOR[19:16];
+	end else begin
+		RED = PALETTE_COLOR[11:8];
+		GREEN = PALETTE_COLOR[7:4];
+		BLUE = PALETTE_COLOR[3:0];
+	end
+end
+
+endmodule

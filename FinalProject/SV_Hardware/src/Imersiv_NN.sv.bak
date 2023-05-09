@@ -1,0 +1,74 @@
+//-------------------------------------------------------------------------
+//      ECE 385 - Summer 2021 Lab 7 Top-level                            --
+//                                                                       --
+//      Updated Fall 2021 as Lab 7                                       --
+//      For use with ECE 385                                             --
+//      UIUC ECE Department                                              --
+//-------------------------------------------------------------------------
+
+
+module lab7 (
+
+      ///////// Clocks /////////
+      input    MAX10_CLK1_50,
+
+      ///////// KEY /////////
+      input    [ 1: 0]   KEY,
+
+      ///////// SDRAM /////////
+      output             DRAM_CLK,
+      output             DRAM_CKE,
+      output   [12: 0]   DRAM_ADDR,
+      output   [ 1: 0]   DRAM_BA,
+      inout    [15: 0]   DRAM_DQ,
+      output             DRAM_LDQM,
+      output             DRAM_UDQM,
+      output             DRAM_CS_N,
+      output             DRAM_WE_N,
+      output             DRAM_CAS_N,
+      output             DRAM_RAS_N,
+
+      ///////// VGA /////////
+      output             VGA_HS,
+      output             VGA_VS,
+      output   [ 3: 0]   VGA_R,
+      output   [ 3: 0]   VGA_G,
+      output   [ 3: 0]   VGA_B
+);
+	
+	// Reset Signal (Active High)
+	logic Reset_h;
+	assign {Reset_h} = ~(KEY[0]); 
+	
+	// Lab 7 SOC Instantiation
+	lab7soc u0 (
+		.clk_clk                           (MAX10_CLK1_50),    //clk.clk
+		.reset_reset_n                     (1'b1),             //reset.reset_n
+		.altpll_0_locked_conduit_export    (),    			   //altpll_0_locked_conduit.export
+		.altpll_0_phasedone_conduit_export (), 				   //altpll_0_phasedone_conduit.export
+		.altpll_0_areset_conduit_export    (),     			   //altpll_0_areset_conduit.export
+    
+		.key_external_connection_export    (KEY),    		   //key_external_connection.export
+
+		//SDRAM
+		.sdram_clk_clk(DRAM_CLK),            				   //clk_sdram.clk
+	   .sdram_wire_addr(DRAM_ADDR),               			   //sdram_wire.addr
+		.sdram_wire_ba(DRAM_BA),                			   //.ba
+		.sdram_wire_cas_n(DRAM_CAS_N),              		   //.cas_n
+		.sdram_wire_cke(DRAM_CKE),                 			   //.cke
+		.sdram_wire_cs_n(DRAM_CS_N),                		   //.cs_n
+		.sdram_wire_dq(DRAM_DQ),                  			   //.dq
+		.sdram_wire_dqm({DRAM_UDQM,DRAM_LDQM}),                //.dqm
+		.sdram_wire_ras_n(DRAM_RAS_N),              		   //.ras_n
+		.sdram_wire_we_n(DRAM_WE_N),                		   //.we_n
+		
+		//VGA
+		.vga_port_red (VGA_R),
+		.vga_port_green (VGA_G),
+		.vga_port_blue (VGA_B),
+		.vga_port_hs (VGA_HS),
+		.vga_port_vs (VGA_VS)
+		
+	 );
+
+endmodule
